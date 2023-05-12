@@ -834,7 +834,8 @@ class _DropdownDialogState<T> extends State<DropdownDialog> {
             ? prepareWidget(widget.doneButton,
                 parameter: selectedResult,
                 context: context, stringToWidgetFunction: (string) {
-                return (FlatButton.icon(
+                return (TextButton.icon(
+                    style: flatButtonStyle,
                     onPressed: !valid
                         ? null
                         : () {
@@ -995,7 +996,8 @@ class _DropdownDialogState<T> extends State<DropdownDialog> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                FlatButton(
+                TextButton(
+                  style: flatButtonStyle,
                   onPressed: () {
                     pop();
                   },
@@ -1015,3 +1017,12 @@ class _DropdownDialogState<T> extends State<DropdownDialog> {
         SizedBox.shrink());
   }
 }
+
+final ButtonStyle flatButtonStyle = TextButton.styleFrom(
+  primary: Colors.black87,
+  minimumSize: Size(88, 36),
+  padding: EdgeInsets.symmetric(horizontal: 16.0),
+  shape: const RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(Radius.circular(2.0)),
+  ),
+);
